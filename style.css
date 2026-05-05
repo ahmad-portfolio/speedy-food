@@ -1,0 +1,247 @@
+/* ============================================================
+    1. GLOBAL STYLES: Poori website ki buniyadi setting
+   ============================================================ */
+html {
+    /* Smooth scroll se anchor links par click karne se page jhatkay ke bajaye aram se move hota hai */
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Is se padding aur border element ki width se bahar nahi nikalte */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ============================================================
+    2. HEADER & NAVBAR: Logo aur Menu ka design
+   ============================================================ */
+header {
+    background: #111;
+    color: white;
+    padding: 15px 8%;
+    position: sticky; /* Is se menu scroll karne par bhi top par chipka rehta hai */
+    top: 0;
+    z-index: 1000; /* Taake menu sab cheezon ke upar nazar aaye */
+}
+
+.navbar {
+    display: flex; /* Items ko ek line mein lane ke liye */
+    justify-content: space-between; /* Logo ek taraf aur links doosri taraf */
+    align-items: center;
+}
+
+.logo span {
+    color: #ffc107; /* Logo ke 'Food' word ka rang tabdeel kiya */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none; /* Bullet points hatane ke liye */
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none; /* Underline khatam karne ke liye */
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ffc107;
+}
+
+.nav-icons {
+    font-size: 1.2rem;
+    color: #ffc107;
+}
+
+/* ============================================================
+    3. HERO SECTION: Pehla banner (Pizza background)
+   ============================================================ */
+.hero {
+    height: 70vh; /* Screen ka 70% hissa cover karta hai */
+    /* linear-gradient se image ke upar halka sa kala rang dala hai taake text saaf nazar aaye */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&w=1200');
+    background-size: cover; /* Image poore area mein fit ho jaye */
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.discount-tag {
+    background: #ffc107;
+    color: black;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* ============================================================
+    4. FOOD CARDS: Menu Items ka design
+   ============================================================ */
+.popular-section {
+    padding: 60px 8%;
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Agar cards zyada hon to wo khud hi niche wali line mein aa jayein */
+}
+
+.dish-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Halka sa shadow '3D' look ke liye */
+    width: 300px;
+    text-align: center;
+    transition: 0.3s; /* Mouse le jane par smooth animation ke liye */
+}
+
+.dish-card:hover {
+    transform: translateY(-10px); /* Mouse upar laane se card thora upar uthta hai */
+}
+
+.dish-card img {
+    width: 100%;
+    height: 200px;
+    border-radius: 15px;
+    object-fit: cover; /* Image kharab (stretch) nahi hoti balkay fit rehti hai */
+}
+
+.price {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin-bottom: 15px;
+}
+
+/* --- ADD TO CART BUTTON --- */
+.add-to-cart {
+    background: #ffc107;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.add-to-cart:hover {
+    background: #000;
+    color: #ffc107;
+}
+
+/* ============================================================
+    5. DEALS & MODAL: Special layouts
+   ============================================================ */
+.deals-grid {
+    display: grid; /* Modern grid layout use kiya hai */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Responsive grid jo khud size adjust kare */
+    gap: 30px;
+}
+
+.deal-card {
+    display: flex;
+    flex-direction: column; /* Row ki jagah column */
+    align-items: center;    /* Text aur image center ho jaye */
+    height: auto;           /* Fixed height hata do */
+    overflow: hidden;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 15px;
+}
+.deal-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.deal-info {
+    text-align: center;
+}
+
+.deal-price-tag {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin: 10px 0;
+}
+
+.deal-btn {
+    background: #ffc107;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.deal-btn:hover {
+    background: #000;
+    color: #ffc107;
+}
+
+
+/* Modal (Popup Box) */
+.modal {
+    display: none; /* Shuru mein ye screen par nahi dikhta */
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7); /* Background kala aur transparent (dhundla) kiya */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    animation: slideDown 0.4s ease; /* Popup ke niche girne wali animation */
+}
+
+/* Animation keyframes */
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Confirm Button */
+.confirm-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Student Deals Special Border */
+#student-deals .dish-card {
+    border-top: 5px solid #2ecc71; /* Identify karne ke liye green border */
+}

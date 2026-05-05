@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedy Food | Ahmad Project</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome: Ye icons (Phone, Cart, Envelope) lane ke liye use kiya hai -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Section: Website ka sab se upar wala hissa (Logo aur Navigation) -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">🍕 Speedy<span>Food</span></div>
+            
+            <!-- Nav Links: Menu ke items tak pohanchne ke liye short-cuts -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#deals">Deals</a></li>
+            </ul>
+            
+            <!-- Cart Icon: Is par click karne se JS ka 'toggleModal' function chalta hai -->
+            <div class="nav-icons">
+                <i class="fas fa-shopping-cart" id="cart-icon" onclick="toggleModal()" style="cursor:pointer;"> 
+                    <!-- cart-count: Isme item ki ginti (1, 2, 3) JS ke zariye update hoti hai -->
+                    <span id="cart-count">0</span>
+                </i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section: Website ka main banner jo sab se pehle nazar aata hai -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="discount-tag">NEW OFFER: 50% OFF</span>
+            <h1>SPEEDY PIZZA</h1>
+            <p>Garama Garam aur Behtareen Fast Food!</p>
+            <!-- Order Now button: User ko direct Menu section tak le jata hai -->
+            <button class="btn-primary" onclick="window.location.href='#menu'">Order Now</button>
+        </div>
+    </section>
+
+    <!-- Menu Section: Jahan Regular items (Burger, Pizza) JS ke loop se generate ho kar aate hain -->
+    <section id="menu" class="popular-section">
+        <h2 class="section-title">Popular Fast Food</h2>
+        <!-- food-container: JS is khali jagah ko 'myFood' array ke items se bhar deta hai -->
+        <div id="food-container" class="card-container"></div>
+    </section>
+
+    <!-- Deals Section: Combo deals dikhane ke liye -->
+    <section id="deals" class="deals-section">
+        <div class="container">
+            <h2 class="section-title">Cheezious Style Combo Deals 🔥</h2>
+            <!-- deals-container: JS yahan 'cheeziousDeals' array ka data load karta hai -->
+            <div id="deals-container" class="deals-grid"></div>
+        </div>
+    </section>
+
+    <!-- Student Deals Section: Special discounted items wala hissa -->
+    <section id="student-deals" class="popular-section" style="background-color: #f0f8ff;">
+        <div class="container">
+            <h2 class="section-title">🎓 Exclusive Student Deals</h2>
+            <br>
+            <!-- student-container: JS yahan sasti deals aur ice creams load karta hai -->
+            <div id="student-container" class="card-container"></div>
+        </div>
+    </section>
+
+    <!-- Cart Modal: Ye popup hai jo tab nazar aata hai jab cart icon par click ho -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <!-- Close button: Modal ko band karne ke liye -->
+            <span class="close-btn" onclick="toggleModal()">&times;</span>
+            <h2>Your Order Summary 🛒</h2>
+            <hr>
+            <!-- cart-items-list: Jo jo cheez select hogi, JS usay yahan generate karega -->
+            <div id="cart-items-list">
+                <p style="padding: 20px; color: #888;">Your cart is empty!</p>
+            </div>
+            <!-- Total Bill: JS price ko jama (plus) karke yahan dikhata hai -->
+            <div class="cart-total">
+                <h3>Total Bill: Rs. <span id="total-bill">0</span></h3>
+            </div>
+            <!-- Confirm Order: Final alert dikhane ke liye function call karta hai -->
+            <button class="confirm-btn" onclick="confirmOrder()">Confirm & Place Order</button>
+        </div>
+    </div>
+
+    <!-- Footer Section: Website ka sab se nichla hissa contact details ke liye -->
+    <footer style="background-color: #333; color: white; padding: 30px 0; text-align: center;">
+        <div class="footer-content">
+            <h3>Contact Us</h3>
+            
+            <div class="contact-info" style="margin: 15px 0;">
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +92 327 8001290</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> ahmad@speedyfood.com</p>
+            </div>
+
+            <hr style="width: 50%; margin: 20px auto; border: 0.5px solid #555;">
+            
+            <p>© 2026 Ahmad Speedy Food | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <!-- JS Link: Is ke baghair hamara cart aur auto-loading items kaam nahi karenge -->
+    <script src="script.js"></script>
+</body>
+</html>
